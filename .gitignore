@@ -124,3 +124,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+staticfiles/
+
+.DS_Store
+static/.DS_Store
+static/bootstrap/.DS_Store

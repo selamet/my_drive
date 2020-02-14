@@ -31,13 +31,18 @@
 {% block content %}
 
     <div class="frame">
-        {% for category in categories %}
-            {% if category.parent is None %}
-                <div class="category">
-                    <a href="#" class="m-3 btn btn-primary btn-block">{{ category.name }}</a>
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="category">
+            <a href="#" class="m-3 btn btn-primary btn-block">Mekanik Tasarım</a>
+        </div>
+        <div class="category">
+            <a href="#" class="m-3 btn btn-primary btn-block">Aviyonik</a>
+        </div>
+        <div class="category">
+            <a href="#" class="m-3 btn btn-primary btn-block">Kurtarma</a>
+        </div>
+        <div class="category">
+            <a href="#" class="m-3 btn btn-primary btn-block">Genel Dosyalar</a>
+        </div>
 
     </div>
 

@@ -19,6 +19,21 @@ def model_form_upload(request):
             return redirect('home')
     else:
         form = DocumentForm()
-    return render(request, 'file/model_form_upload.html', {
+    return render(request, '../static/table/file/model_form_upload.html', {
         'form': form
     })
+
+
+def category_detail(request, slug):
+    context = {
+        'slug': slug
+    }
+    return render(request, 'category_detail.html', context=context)
+
+
+def add_file(request):
+    categories = Category.objects.all()
+    context = {'categories': categories
+               }
+
+    return render(request, 'add_file.html', context=context)

@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ece1d21d-0e86-433b-bc91-788b4a7bb12a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/detail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/download-button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/parent_categories_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/file/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file/model_form_upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file/simple_upload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydrive/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mydrive/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +63,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/file/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -78,13 +76,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/img" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/static/bootstrap/css" />
+      <recent name="$PROJECT_DIR$/static/bootstrap" />
+      <recent name="$PROJECT_DIR$/file/migrations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/table" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/file/migrations" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/file" />
     </key>
   </component>
   <component name="RunManager">
@@ -137,6 +137,7 @@
       <updated>1578732049337</updated>
       <workItem from="1578732052385" duration="12245000" />
       <workItem from="1581682950693" duration="9042000" />
+      <workItem from="1581770117139" duration="12639000" />
     </task>
     <servers />
   </component>
@@ -148,5 +149,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="141" y="23" key="SettingsEditor/0.0.1280.800/-1920.-101.1920.1080@0.0.1280.800" timestamp="1581683669726" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1581776305193">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800/-1920.-101.1920.1080@0.0.1280.800" timestamp="1581776305193" />
   </component>
 </project>

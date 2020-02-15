@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
 {% block ust_icerik %}
 
     <style>
+
         .category {
             width: 20%;
             display: inline-block;
             vertical-align: middle;
 
-        }
 
-        #img-download {
-            height: 60%;
-        }
-
-        #img-detail {
-            height: 1.8%;
         }
 
         .category a {
@@ -31,6 +25,30 @@
             height: 120px;
             text-align: center;
 
+
+        }
+
+        #img-download {
+            height: 60%;
+        }
+
+        #img-detail {
+            height: 1.8%;
+        }
+
+        .category-name-header {
+            text-align: center;
+            margin-top: 5%;
+            border-bottom: 1px solid lightslategray;
+        }
+
+        .show-table {
+            margin: 20px;
+        }
+
+        #my-breadcrumb {
+            margin: 2%;
+            text-align: center;
         }
 
     </style>
@@ -38,21 +56,49 @@
 {% endblock %}
 
 {% block content %}
+    <div id="my-breadcrumb" class="breadcrumb">
 
-    <div class="frame">
-        {% for category in categories %}
-            {% if category.parent is None %}
-                <div class="category">
-                    <a href="{% url 'parent-categories' category.slug %}"
-                       class="m-3 btn btn-primary btn-block">{{ category.name }}</a>
-                </div>
+        <a class="breadcrumb-item" href="{% url 'home' %}">Ana Sayfa</a>
+        {% if parent_category %}
+
+            {% if parent_category.parent %}
+
+                <a class="breadcrumb-item"
+                   href="{% url 'parent-categories' parent_category.parent.slug %}">{{ parent_category.parent }}</a>
+                <a class="breadcrumb-item"
+                   href="{% url 'parent-categories' parent_category.slug %}">  {{ parent_category }}</a>
+            {% else %}
+                <a class="breadcrumb-item"
+                   href="{% url 'parent-categories' parent_category.slug %}"> {{ parent_category }}</a>
+
             {% endif %}
-        {% endfor %}
+        {% else %}
+
+        {% endif %}
 
     </div>
 
 
-    <div>
+    {% if sub_categories %}
+        <div class="frame">
+            <h2 class="category-name-header">{{ parent_category }}</h2>
+
+            {% for category in sub_categories %}
+                <div class=" category">
+                    <a href="{% url 'parent-categories' category.slug %}"
+                       class=" m-3 btn btn-primary btn-block">{{ category.name }}</a>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <h2 class="category-name-header">{{ parent_category }}</h2>
+    {% endif %}
+
+
+
+    <div class="show-table">
         <table class="table">
             <thead>
             <tr>
@@ -71,7 +117,7 @@
                     <th scope="row">{{ document.title }}</th>
                     <td>{{ document.user }}</td>
                     <td>{{ document.category }}</td>
-                    <td>{{ document.uploaded_at|date }}</td>
+                    <td>{{ document.uploaded_at }}</td>
                     <td><a href="{% url 'document-detail' document.slug %}"><img id="img-detail"
                                                                                  src="{% static 'img/detail.png' %}"
                                                                                  alt=""></a></td>

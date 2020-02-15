@@ -11,11 +11,17 @@ from unidecode import unidecode
 
 
 class Document(models.Model):
+    title = models.CharField(max_length=55, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
     document = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category', blank=True, on_delete=models.CASCADE)
-    slug = models.SlugField(null=True)  # new
+    slug = models.SlugField(null=True, blank=True)  # new
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Yazar", blank=True, null=True)
+
+    def get_file_url(self):
+        return self.document.url
+
 
     def get_unique_slug(self):
         sayi = 0
@@ -41,17 +47,17 @@ class Document(models.Model):
         return self.title
 
     def __str__(self):
-        return self.description
+        return self.title
 
 
 class Category(MPTTModel):
     name = models.CharField(max_length=50, unique=True, blank=True, null=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-    slug = models.SlugField(null=True)  # new
+    slug = models.SlugField(null=True, blank=True)  # new
 
     def get_unique_slug(self):
         sayi = 0
-        slug = slugify(unidecode(self.title))
+        slug = slugify(unidecode(self.name))
         new_slug = slug
         while Category.objects.filter(slug=new_slug).exists():
             sayi += 1

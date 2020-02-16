@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ece1d21d-0e86-433b-bc91-788b4a7bb12a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/img/detail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/download-button.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/parent_categories_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.fileupload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.iframe-transport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.ui.widget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydrive/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mydrive/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_file.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +48,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="634" />
-    <option name="height" value="800" />
-  </component>
   <component name="ProjectId" id="1XnXgQF4purcS457o80DqcO6Kwf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/bootstrap/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -76,15 +72,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/table" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/bootstrap/js" />
       <recent name="$PROJECT_DIR$/static/img" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/static/bootstrap/css" />
       <recent name="$PROJECT_DIR$/static/bootstrap" />
-      <recent name="$PROJECT_DIR$/file/migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/table" />
     </key>
   </component>
   <component name="RunManager">
@@ -137,7 +133,8 @@
       <updated>1578732049337</updated>
       <workItem from="1578732052385" duration="12245000" />
       <workItem from="1581682950693" duration="9042000" />
-      <workItem from="1581770117139" duration="12639000" />
+      <workItem from="1581770117139" duration="12748000" />
+      <workItem from="1581855473790" duration="11694000" />
     </task>
     <servers />
   </component>

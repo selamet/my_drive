@@ -6,7 +6,7 @@ from file.models import Document, Category
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ('description', 'document', 'category',)
+        fields = ('title', 'description', 'category')
 
     def __init__(self, *args, **kwargs):
         super(DocumentForm, self).__init__(*args, **kwargs)

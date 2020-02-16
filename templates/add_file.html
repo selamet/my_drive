@@ -1,83 +1,66 @@
 {% extends 'base.html' %}
 
-
+{% load static %}
 {% block ust_icerik %}
+    <script src="{% static 'bootstrap/js/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'bootstrap/js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'bootstrap/js/jquery.fileupload.js' %}"></script>
 
-    <style>
-        .category {
-            width: 20%;
-            float: left;
-            margin: 10px;
-
-        }
-
-        .category a {
-            margin: auto;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .frame {
-            height: 120px;
-
-        }
-
-    </style>
-
+    <script src="{% static 'bootstrap/js/basic-upload.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
-    <div class="frame">
-        <div class="category">
-            <a href="#" class="m-3 btn btn-primary btn-block">Mekanik Tasarım</a>
-        </div>
-        <div class="category">
-            <a href="#" class="m-3 btn btn-primary btn-block">Aviyonik</a>
-        </div>
-        <div class="category">
-            <a href="#" class="m-3 btn btn-primary btn-block">Kurtarma</a>
-        </div>
-        <div class="category">
-            <a href="#" class="m-3 btn btn-primary btn-block">Genel Dosyalar</a>
-        </div>
 
+    <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Yükleniyor...</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <h1 class="page-header">File Upload</h1>
 
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Açıklama</th>
-                <th scope="col">Yükleyen</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Yükleme Tarihi</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>12.03.2020</td>
-            </tr>
-            <tr>
-                <th scope="row">Lorem Dosyaları</th>
-                <td>Selamet ŞAMLI</td>
-                <td>Mekanik tasarım</td>
-                <td>12.03.2020</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Aviyonik</td>
-                <td>12.03.2020</td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="first-form">
+        {% for foo in form %}
+            {% csrf_token %}
+            {{ foo.label }}:
+            {{ foo }}
+        {% endfor %}
     </div>
+
+    <div class="col-lg-8 offset-2 alert alert-danger"><p class="text-center">Dosya yüklemeden önce yukarıdaki formu
+        doldurun!!!</p></div>
+
+    <div class=" row">
+        <div class="offset-2 col-lg-8">
+
+            <div class="pull-center show-form">
+                <div style="margin-bottom: 20px;">
+                    <button type="button" class="js-upload-photos well text-muted text-center"
+                            style="padding-top: 4rem; padding-bottom: 4rem;">
+                        <span class="glyphicon glyphicon-arrow-down" style="font-size: 4rem;"></span>
+                        <h3>Resim yüklemek için sürükleyin veya tıklayın.</h3>
+                    </button>
+                    <input id="fileupload" type="file" name="file" multiple
+                           style="display: none;"
+                           data-url="{% url 'basic-upload' doc.slug %}"
+                           data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+
+
+                </div>
+
+                <a href="{% url 'home' %}" class="btn btn-info"> Tamamlandı</a>
+            </div>
+        </div>
+
 
 {% endblock %}

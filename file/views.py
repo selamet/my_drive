@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from file.forms import DocumentForm
@@ -52,12 +53,41 @@ def parent_categories(request, slug):
     return render(request, 'parent_categories_detail.html', context=context)
 
 
-def add_file(request):
-    categories = Category.objects.all()
-    context = {'categories': categories
-               }
+def upload_file_first(request):
+    if request.is_ajax():
+        title = request.GET.get('title')
+        description = request.GET.get('description')
+        category = Category.objects.all().first()
+        doc = Document.objects.create(title=title, description=description, category=category, user=request.user)
+        data = {'doc': doc}
+        return JsonResponse(data=data)
 
-    return render(request, 'add_file.html', context=context)
+
+def upload_file(request):
+    if request.method == 'GET':
+        form = DocumentForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'add_file.html', context=context)
+    if request.method == 'POST':
+        #document = get_object_or_404(Document, slug='slug')
+        form = DocumentForm()
+        if form.is_valid():
+            file = form.save(commit=False)
+            file.document = document
+            file.save()
+            data = {'is_valid': True, 'url': file.file.url}
+        else:
+            data = {'is_valid': False}
+        return JsonResponse(data)
+
+    if request.method == 'GET':
+        form = DocumentForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'add_file.html', context=context)
 
 
 def document_detail(request, slug):
@@ -65,3 +95,7 @@ def document_detail(request, slug):
         'slug': slug
     }
     return render(request, 'document_detail.html', context=context)
+
+
+def get_category(request):
+    ""

@@ -13,14 +13,11 @@ from unidecode import unidecode
 class Document(models.Model):
     title = models.CharField(max_length=55, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
-    document = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category', blank=True, on_delete=models.CASCADE)
     slug = models.SlugField(null=True, blank=True)  # new
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Yazar", blank=True, null=True)
 
-    def get_file_url(self):
-        return self.document.url
 
 
     def get_unique_slug(self):
@@ -48,6 +45,19 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class File(models.Model):
+    document = models.ForeignKey(Document, null=True, on_delete=models.CASCADE, related_name='file')
+    file = models.FileField(upload_to='documents/', verbose_name='document')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{}".format(self.document)
+
+    def get_file(self):
+        if self.file:
+            return self.file.url
 
 
 class Category(MPTTModel):

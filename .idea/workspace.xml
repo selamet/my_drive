@@ -3,13 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ece1d21d-0e86-433b-bc91-788b4a7bb12a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydrive/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mydrive/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create-document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/document_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/document_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/parent_categories_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parent_categories_detail.html" afterDir="false" />
     </list>
@@ -40,8 +41,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -135,7 +136,7 @@
       <workItem from="1581682950693" duration="9042000" />
       <workItem from="1581770117139" duration="12748000" />
       <workItem from="1581855473790" duration="11843000" />
-      <workItem from="1582017881870" duration="7673000" />
+      <workItem from="1582017881870" duration="14585000" />
     </task>
     <servers />
   </component>
@@ -143,6 +144,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582030824846">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800/-1920.-101.1920.1080@0.0.1280.800" timestamp="1582030824846" />
     <state x="141" y="23" key="SettingsEditor" timestamp="1581683669726">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

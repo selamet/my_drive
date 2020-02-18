@@ -11,10 +11,6 @@
 
         }
 
-        #img-download {
-            height: 60%;
-        }
-
         #img-detail {
             height: 1.8%;
         }
@@ -61,7 +57,6 @@
                 <th scope="col">Kategori</th>
                 <th scope="col">Yükleme Tarihi</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -75,8 +70,6 @@
                     <td><a href="{% url 'document-detail' document.slug %}"><img id="img-detail"
                                                                                  src="{% static 'img/detail.png' %}"
                                                                                  alt=""></a></td>
-                    <td><a href="{{ document.get_file_url }}"><img id="img-download"
-                                                                   src="{% static 'img/download-button.svg' %}" alt=""></a>
                     </td>
 
                 </tr>

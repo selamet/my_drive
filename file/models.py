@@ -1,8 +1,10 @@
+import os
 from uuid import uuid4
 
 from django.db import models
 
 # Create your models here.
+from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 
 from mptt.models import MPTTModel, TreeForeignKey
@@ -17,6 +19,8 @@ class Document(models.Model):
     category = models.ForeignKey('Category', blank=True, on_delete=models.CASCADE)
     slug = models.SlugField(null=True, blank=True)  # new
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Yazar", blank=True, null=True)
+
+
 
     def get_unique_slug(self):
         sayi = 0
@@ -49,6 +53,9 @@ class File(models.Model):
     document = models.ForeignKey(Document, null=True, on_delete=models.CASCADE, related_name='file')
     file = models.FileField(upload_to='documents/', verbose_name='document')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def filename(self):
+        return os.path.basename(self.file.name)
 
     def __str__(self):
         return "{}".format(self.document)
@@ -91,3 +98,14 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.name
+
+
+@receiver(models.signals.post_delete, sender=File)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `MediaFile` object is deleted.
+    """
+    if instance.file:
+        if os.path.isfile(instance.file.path):
+            os.remove(instance.file.path)

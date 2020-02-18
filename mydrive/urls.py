@@ -18,12 +18,14 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from mydrive import settings
-from file.views import home
+from file.views import home, user_login,user_logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('file/', include('file.urls')),
+    path('login/', user_login, name='user-login'),
+    path('logout/', user_logout, name='user-logout'),
 
 ]
 

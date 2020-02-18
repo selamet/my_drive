@@ -1,13 +1,47 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block ust_icerik %}
-
+    <style>
+        #img-download {
+            height: 18px;
+            float: right;
+        }
+    </style>
 {% endblock %}
 
 
 {% block content %}
-    <h2>Selam sürtükler</h2>
+    <div class="m-3">
+        <h2 class="card-header"> {{ doc.title }}</h2>
+    </div>
+    <div class="description m-3">
+        {{ doc.description }}<br>
 
-    {{ slug }}
+    </div>
+
+    <div class="file">
+        <h4 class="m-2 text-danger">Dosyalar:</h4>
+        {% for i in doc_file %}
+            <ul class="list-group">
+                <li class="ml-3 m-1 list-group-item">
+                    {{ i.filename }}
+                    <a class="pull-right" href="{{ i.get_file }}">
+                        <img id="img-download" src="{% static 'img/download-button.svg' %}" alt="">
+                    </a>
+                </li>
+            </ul>
+        {% endfor %}
+
+    </div>
+
+    <div class="edited">
+        <hr>
+        <span>Yükleme tarihi : {{ doc.uploaded_at }}</span><br>
+        <span>Yükleyen : {{ doc.user }}</span>
+        {% if request.user == doc.user %}
+            <br>
+            <a href="{% url 'doc-remove' doc.slug %}" class="btn btn-danger"> Gönderiyi Sil</a>
+
+        {% endif %}
+    </div>
 {% endblock %}

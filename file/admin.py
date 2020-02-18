@@ -1,7 +1,7 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 
-from file.models import Document, Category
+from file.models import Document, Category, File
 
 
 # Register your models here.
@@ -12,6 +12,7 @@ class CustomMPTTModelAdmin(MPTTModelAdmin):
 
 
 admin.site.register(Document)
+admin.site.register(File)
 admin.site.register(
     Category,
     DraggableMPTTAdmin,

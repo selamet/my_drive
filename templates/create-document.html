@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block ust_icerik %}
+
+
+{% endblock %}
+
+
+{% block content %}
+    <form enctype="multipart/form-data" method="post">
+        {% for foo in form %}
+            {% csrf_token %}
+            {{ foo.label }}
+            {{ foo }}
+            {% if foo.errors %}
+                {% for error in foo.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+
+            {% else %}
+                {% if foo.help_text %}
+                    <span class="text-success"> {{ foo.help_text }}</span>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <button class="btn btn-info btn-block">Gönder</button>
+    </form>
+{% endblock %}

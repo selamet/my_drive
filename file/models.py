@@ -11,14 +11,12 @@ from unidecode import unidecode
 
 
 class Document(models.Model):
-    title = models.CharField(max_length=55, blank=True, null=True)
-    description = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=55, blank=True, null=False)
+    description = models.CharField(max_length=255, blank=True, null=False)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category', blank=True, on_delete=models.CASCADE)
     slug = models.SlugField(null=True, blank=True)  # new
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Yazar", blank=True, null=True)
-
-
 
     def get_unique_slug(self):
         sayi = 0

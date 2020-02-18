@@ -1,7 +1,8 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 
-from file.forms import DocumentForm
+from file.forms import DocumentForm, FileForm
 from file.models import Category, Document
 from mptt.forms import MoveNodeForm
 
@@ -12,18 +13,6 @@ def home(request):
     context = {'categories': categories, 'documents': documents}
     return render(request, 'home.html', context=context)
 
-
-def model_form_upload(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = DocumentForm()
-    return render(request, '../static/table/file/model_form_upload.html', {
-        'form': form
-    })
 
 
 def category_detail(request, slug):
@@ -53,41 +42,45 @@ def parent_categories(request, slug):
     return render(request, 'parent_categories_detail.html', context=context)
 
 
-def upload_file_first(request):
-    if request.is_ajax():
-        title = request.GET.get('title')
-        description = request.GET.get('description')
-        category = Category.objects.all().first()
-        doc = Document.objects.create(title=title, description=description, category=category, user=request.user)
-        data = {'doc': doc}
-        return JsonResponse(data=data)
-
-
-def upload_file(request):
-    if request.method == 'GET':
-        form = DocumentForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'add_file.html', context=context)
+def upload_file_step1(request, slug):
+    form = DocumentForm()
     if request.method == 'POST':
-        #document = get_object_or_404(Document, slug='slug')
-        form = DocumentForm()
+        form = DocumentForm(data=request.POST, files=request.FILES)
         if form.is_valid():
-            file = form.save(commit=False)
-            file.document = document
-            file.save()
-            data = {'is_valid': True, 'url': file.file.url}
-        else:
-            data = {'is_valid': False}
-        return JsonResponse(data)
+            category = get_object_or_404(Category, slug=slug)
+            doc = form.save(commit=False)
+            doc.user = request.user
+            doc.category = category
+            doc.save()
+            slug = doc.slug
+            print(slug)
+            url = reverse('basic-upload', kwargs={'slug': slug})
+            return HttpResponseRedirect(url)
+    return render(request, 'create-document.html', context={'form': form})
 
-    if request.method == 'GET':
-        form = DocumentForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'add_file.html', context=context)
+
+def upload_file(request, slug):
+    if request.user != get_object_or_404(Document, slug=slug).user:
+        raise Http404("Bu gönderiyi fotoğraf ekleyemezsiniz.")
+    else:
+        if request.method == 'GET':
+            doc = get_object_or_404(Document, slug=slug)
+            context = {
+
+                'doc': doc
+            }
+            return render(request, 'add_file.html', context=context)
+        elif request.method == 'POST':
+            form = FileForm(request.POST, request.FILES)
+            doc = get_object_or_404(Document, slug=slug)
+            if form.is_valid():
+                file = form.save(commit=False)
+                file.document = doc
+                file.save()
+                data = {'is_valid': True, 'name': file.document.title, 'url': file.file.url}
+            else:
+                data = {'is_valid': False}
+            return JsonResponse(data)
 
 
 def document_detail(request, slug):
@@ -97,5 +90,3 @@ def document_detail(request, slug):
     return render(request, 'document_detail.html', context=context)
 
 
-def get_category(request):
-    ""

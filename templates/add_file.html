@@ -11,12 +11,15 @@
 
 {% block content %}
 
+    <div id="yuklendi"><p class="text-center alert alert-success">Gönderiniz başarı ile yüklendi bu sayfa üzerinden aynı başlık
+        altına farklı dosyalar ekleyebilirsiniz. <br> <a href="{% url 'home' %}">Ana sayfaya gitmek için tıkla</a></p></div>
 
     <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Yükleniyor...</h4>
+                    <h4 id="modal-title" class="modal-title">Yükleniyor...</h4>
+                    <p id="kapat"><a href="{% url 'home' %}">X</a></p>
                 </div>
                 <div class="modal-body">
                     <div class="progress">
@@ -29,13 +32,6 @@
 
     <h1 class="page-header">File Upload</h1>
 
-    <div class="first-form">
-        {% for foo in form %}
-            {% csrf_token %}
-            {{ foo.label }}:
-            {{ foo }}
-        {% endfor %}
-    </div>
 
     <div class="col-lg-8 offset-2 alert alert-danger"><p class="text-center">Dosya yüklemeden önce yukarıdaki formu
         doldurun!!!</p></div>
@@ -61,6 +57,9 @@
                 <a href="{% url 'home' %}" class="btn btn-info"> Tamamlandı</a>
             </div>
         </div>
+    </div>
+
+
 
 
 {% endblock %}

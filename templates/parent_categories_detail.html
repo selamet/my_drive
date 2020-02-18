@@ -93,6 +93,9 @@
         </div>
 
     {% else %}
+<div class=" col-lg-6 offset-3"><a class="btn btn-success btn-block"
+                                       href="{% url 'upload-file-step-1' parent_category.slug %}">Dosya Ekle</a></div>
+
         <h2 class="category-name-header">{{ parent_category }}</h2>
     {% endif %}
 

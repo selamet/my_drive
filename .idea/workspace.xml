@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ece1d21d-0e86-433b-bc91-788b4a7bb12a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.fileupload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.iframe-transport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/jquery.ui.widget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/file/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/bootstrap/js/basic-upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/parent_categories_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parent_categories_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +134,8 @@
       <workItem from="1578732052385" duration="12245000" />
       <workItem from="1581682950693" duration="9042000" />
       <workItem from="1581770117139" duration="12748000" />
-      <workItem from="1581855473790" duration="11694000" />
+      <workItem from="1581855473790" duration="11843000" />
+      <workItem from="1582017881870" duration="7673000" />
     </task>
     <servers />
   </component>
